@@ -4,7 +4,7 @@
 			<!-- <router-link :to="{path: 'shop', query:{geohash, id: item.id}}" v-for="item in shopListArr" tag='li' :key="item.id" class="shop_li"> -->
 			<div v-for="item in shopListArr" tag='li' :key="item.id" class="shop_li">
 				<video class="video-box" width="100%" height="240" controls>
-					<source src="https://www.runoob.com/try/demo_source/movie.mp4"  type="video/mp4">
+					<source src="http://xjj.mxao.cn/addons/silence_vote/template/static/110.mp4"  type="video/mp4">
 				</video>
 				<div class="bottom-box"> 
 					<div class="circle-red"><span>赏</span></div>

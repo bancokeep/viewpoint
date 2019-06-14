@@ -1,11 +1,11 @@
 <template>
   	<div class="paddingTop search_page">
         <head-top head-title="围城" goBack="true"></head-top>
-        <form class="search_form">
+        <!-- <form class="search_form">
             <input type="search" name="search" placeholder="请输入搜索内容" class="search_input" v-model="searchValue" @input="checkInput">
             <input type="submit" name="submit" class="search_submit" @click.prevent="searchTarget('')">
-        </form>
-        <section v-if="restaurantList.length">
+        </form> -->
+        <!-- <section v-if="restaurantList.length">
             <h4 class="title_restaurant">商家</h4>
             <ul class="list_container">
                 <router-link :to="{path:'/shop', query:{id:item.id}}" tag="li" v-for="item in restaurantList" :key="item.id" class="list_li">
@@ -35,8 +35,8 @@
                     </section>
                 </router-link>
             </ul>
-        </section>
-        <section class="search_history" v-if="searchHistory.length&&showHistory">
+        </section> -->
+        <!-- <section class="search_history" v-if="searchHistory.length&&showHistory">
             <h4 class="title_restaurant">搜索历史</h4>
             <ul>
                 <li v-for="(item, index) in searchHistory" :key="index" class="history_list">
@@ -48,8 +48,52 @@
                 </li>
             </ul>
             <footer class="clear_history" @click="clearAllHistory">清空搜索历史</footer>
+        </section> -->
+        <!-- <div class="search_none" v-if="emptyResult">很抱歉！无搜索结果</div> -->
+        <section class="weicheng-bg">
+            <!-- <img src="../../images/map1.jpg"> -->
+            <section>
+                <router-link :to="'/find'" v-for="(item,index) in locationP" class="profile-link">
+                    <div class="position-point"   @click="" :style="{ top: Math.random(5)*((15-4)+4) + 'rem', left: Math.random(2)*((5-1)+1) + 'rem' }"  :key="index">
+                        <img src="../../images/point.png">
+                    </div>
+                </router-link>
+            </section>
+            <section class="nav-foot-box">
+                <section class="nav-foot-item">
+                    <div>
+                        <img src="../../images/iconz.png"/>
+                    </div>
+                    <span>
+                        申请加群
+                    </span>
+                </section>
+                <section class="nav-foot-item">
+                     <div>
+                        <img src="../../images/iconz.png"/>
+                    </div>
+                    <span>
+                        创建围城
+                    </span>
+                </section>
+                <section class="nav-foot-item">
+                     <div>
+                        <img src="../../images/iconz.png"/>
+                    </div>
+                    <span>
+                        群列表
+                    </span>
+                </section>
+                <section class="nav-foot-item">
+                     <div>
+                        <img src="../../images/iconz.png"/>
+                    </div>
+                    <span>
+                        换一组
+                    </span>
+                </section>
+            </section>
         </section>
-        <div class="search_none" v-if="emptyResult">很抱歉！无搜索结果</div>
         <foot-guide></foot-guide>
     </div>
 </template>
@@ -71,6 +115,7 @@ export default {
             searchHistory: [], // 搜索历史记录
             showHistory: true, // 是否显示历史记录，只有在返回搜索结果后隐藏
             emptyResult: false, // 搜索结果为空时显示
+            locationP:["北京","上海","新加坡","美国","巴黎","泰国","缅甸","巴厘岛","新乡","北方","南方"]
         }
     },
     created(){
@@ -146,7 +191,14 @@ export default {
 
 <style lang="scss" scoped>
     @import '../../style/mixin';
-    
+    .weicheng-bg{
+        background: url(../../images/map1.jpg) no-repeat 0 0;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        background-size: cover;
+        top: -1.9rem;
+    }
     .search_page{
         margin-bottom: 2rem;
     }
@@ -267,5 +319,36 @@ export default {
         background-color: #fff;
         text-align: center;
         margin-top: 0.125rem;
+    }
+    .position-point{
+        position: absolute;
+        cursor: pointer;
+    }
+    .nav-foot-box{
+        position: absolute;
+        bottom: 0rem;
+        display: flex;
+        background-color: #eee;
+        width:100%;
+        .nav-foot-item{
+            flex:auto;
+            margin: .5rem;
+            text-align: center;
+            div{
+                padding: .5rem;
+                margin: .5rem 0;
+                border-radius: .2rem;
+                background-color: #fff;
+                img{
+                width:1rem
+             }
+            }
+            span{
+                color:$blue; 
+                font-size:0.5rem;
+                padding: .25rem 0 1rem 0;
+                display: block;
+            }
+        }
     }
 </style>

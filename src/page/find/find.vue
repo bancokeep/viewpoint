@@ -1,7 +1,12 @@
  <template>
     <div class="rating_page">
-        <head-top head-title="发现" go-back='true'></head-top>
-        <section>发现</section>
+        <head-top head-title="围城详情" go-back='true'></head-top>
+        <section>
+            <video class="video-box" width="100%" height="240" controls>
+                <source src="http://xjj.mxao.cn/addons/silence_vote/template/static/110.mp4"  type="video/mp4">
+            </video>
+        </section>
+        
         <foot-guide></foot-guide>
     </div>
 </template>

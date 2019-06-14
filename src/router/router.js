@@ -4,6 +4,9 @@ const home = r => require.ensure([], () => r(require('../page/home/home')), 'hom
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
 const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
 const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
+
+const videoChild = r => require.ensure([], () => r(require('../page/search/children/videoChild')), 'videoChild')
+
 const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'shop')
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
@@ -58,12 +61,12 @@ export default [{
         //地址为空时跳转home页面
         {
             path: '',
-            redirect: '/home'
+            redirect: '/msite'
         },
         //首页城市列表页
         {
-            path: '/home',
-            component: home
+            path: '/msite',
+            component: msite
         },
         //当前选择城市页
         {
@@ -84,7 +87,11 @@ export default [{
         //搜索页
         {
             path: '/search/:geohash',
-            component: search
+            component: search,
+            children: [{
+                path: 'profile', //搜索地址
+                component: videoChild,
+            }]
         },
         //商铺详情页
         {

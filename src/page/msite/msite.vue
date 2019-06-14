@@ -7,12 +7,12 @@
 	    			<line x1="14" y1="14" x2="20" y2="20" style="stroke:rgb(255,255,255);stroke-width:2"/>
 	    		</svg>
     		</router-link>
-			<div><span class="title_text ellipsis">观点</span></div>
+			<div><span class="title_text ellipsis">赞赏</span></div>
 			<!-- <router-link to="/home" slot="msite-title" class="msite_title">
 				<span class="title_text ellipsis">{{msietTitle}}</span>
 			</router-link> -->
 			<router-link to="/home" slot="msite-title" class="msite_title">
-				<span class="title_text ellipsis">观点</span>
+				<span class="title_text ellipsis">赞赏</span>
 			</router-link>
     	</head-top>
 		<form class="search_form">
@@ -252,7 +252,7 @@ export default {
 		height: 0.8rem;
 		position: absolute;
 		margin-left: 1.5rem;
-		top: 2.75rem;
+		top: 2.8rem;
 	}
 	.circle-red{
 		font-size: 0.55rem;

@@ -17,18 +17,19 @@
     	</head-top>
 		<nav class="nav-box">
                <section class="nav-box-top">
-                   <div class="active-div">点击榜</div>
-                   <div>评分榜</div>
+                   <div v-for="(o,index) in navList" :key="index" :class="{'active-div':activeNav==index}" @click="chengeNav(index)"> {{o}}</div>
+                   <!-- <div class="active-div">点击榜</div>
+                   <div>评分榜</div> -->
                </section>
                <section class="nav-box-bottom">
                    <ul class="silder-ul">
                        <li class="active-li">课程</li>
+                       <li v-for="(item,index) in navSecList" :key="index">{{item}}</li>
+                       <!-- <li>课程</li>
                        <li>课程</li>
                        <li>课程</li>
                        <li>课程</li>
-                       <li>课程</li>
-                       <li>课程</li>
-                       <li>课程</li>
+                       <li>课程</li> -->
                    </ul>
                </section>
         </nav>
@@ -80,6 +81,9 @@ export default {
             foodTypes: [], // 食品分类列表
             hasGetData: false, //是否已经获取地理位置数据，成功之后再获取商铺列表信息
             imgBaseUrl: 'https://fuss10.elemecdn.com', //图片域名地址
+            navList:["点击榜","评分榜"],
+            navSecList:["舞蹈","明星","体育","旅游","教育","同城","游戏","骑行"],//二级导航,
+            activeNav:0,
         }
     },
     async beforeMount(){
@@ -137,7 +141,10 @@ export default {
     		}else{
     			return ''
     		}
-    	}
+        },
+        chengeNav(index){
+            this.activeNav=index;
+        }
     },
     watch: {
 

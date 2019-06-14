@@ -31,8 +31,10 @@
             <span>赞赏</span>
         </section>
         <section @click = "gotoAddress({path: '/search/geohash'})" class="guide_item">
-            <img v-show="$route.path.indexOf('search') !== -1" src="../../images/iconz_a.png">
-            <img v-show="$route.path.indexOf('search') == -1" src="../../images/iconz.png">
+            <section class="icon_style">
+                <img v-show="$route.path.indexOf('search') !== -1" src="../../images/iconw_a.png">
+                <img v-show="$route.path.indexOf('search') == -1" src="../../images/iconw.png">
+            </section>
         	<!-- <svg class="icon_style">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('search') !== -1? '#findActive' : '#find'"></use>
             </svg> -->
@@ -42,8 +44,10 @@
             <div class="center-logo"><img src="../../images/logo-s.png"></div>
         </section>
         <section @click = "gotoAddress('/order')" class="guide_item">
-            <img v-show="$route.path.indexOf('order') !== -1" src="../../images/iconz_a.png">
-            <img v-show="$route.path.indexOf('order') == -1" src="../../images/iconz.png">
+            <section class="icon_style">
+                <img v-show="$route.path.indexOf('order') !== -1" src="../../images/iconp_a.png">
+                <img v-show="$route.path.indexOf('order') == -1" src="../../images/iconp.png">
+            </section>
         	<!-- <svg class="icon_style">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('order') !== -1? '#orderActive' : '#order'"></use>
             </svg> -->
@@ -56,8 +60,10 @@
             <span>我的</span>
         </section>-->
         <section @click = "gotoAddress('/video')" class="guide_item">
-            <img v-show="$route.path.indexOf('video') !== -1" src="../../images/iconz_a.png">
-            <img v-show="$route.path.indexOf('video') == -1" src="../../images/iconz.png">
+            <section class="icon_style">
+                <img v-show="$route.path.indexOf('video') !== -1" src="../../images/icony_a.png">
+                <img v-show="$route.path.indexOf('video') == -1" src="../../images/icony.png">
+            </section>
             <!-- <svg class="icon_style">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('video') !== -1? '#videoActive' : '#video'"></use>
             </svg> -->
