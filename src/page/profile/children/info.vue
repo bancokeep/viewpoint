@@ -6,8 +6,9 @@
                 <input type="file" class="profileinfopanel-upload" @change="uploadAvatar">
                 <h2>头像</h2>
                 <div class="headportrait-div">
-                    <img  v-if="userInfo" :src="imgBaseUrl + userInfo.avatar" class="headportrait-div-top">
-                    <span class="headportrait-div-top" v-else>
+                    <!-- <img  v-if="userInfo" src="../../images/lodo-s.png" class="headportrait-div-top"> -->
+                     <!-- <img  v-if="userInfo" :src="imgBaseUrl + userInfo.avatar" class="headportrait-div-top"> -->
+                    <span class="headportrait-div-top" >
                         <svg>
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#avatar-default"></use>
                         </svg>

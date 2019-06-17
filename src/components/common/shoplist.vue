@@ -11,7 +11,7 @@
 					<div class="circle-text">6666</div>
 					<div class="bottom-box-c"><img class="icon-img" src="../../images/ps_thumbsup.png"/><span>666</span></div>
 					<div class="bottom-box-c"><img class="icon-img" src="../../images/pinglun.png"/><span>666</span></div>
-					<div class="bottom-box-c"><img class="icon-img" src="../../images/fasong.png"/><span>666</span></div>
+					<div class="bottom-box-c" @click="sendMsg"><img class="icon-img" src="../../images/fasong.png"/><span>666</span></div>
 					<div class="bottom-box-c bottom-box-gd"><img class="icon-img" src="../../images/gengduo333.png"/></div>
 
 				</div>
@@ -117,6 +117,8 @@ export default {
 			showLoading: true, //显示加载动画
 			touchend: false, //没有更多数据
 			imgBaseUrl,
+			showShare:false,
+
 		}
 	},
 	mounted(){
@@ -149,6 +151,7 @@ export default {
 			showBack(status => {
 				this.showBackStatus = status;
 			});
+		
 		},
 		//到达底部加载更多数据
 		async loaderMore(){
@@ -204,6 +207,11 @@ export default {
 			}
 			return zhunStatus
 		},
+		//子组件事件传递给父组件
+		sendMsg(){
+			this.showShare=true;
+			this.$emit('faShowShare', this.showShare);
+		}
 	},
 	watch: {
 		//监听父级传来的restaurantCategoryIds，当值发生变化的时候重新获取餐馆数据，作用于排序和筛选
@@ -231,6 +239,7 @@ export default {
 	}
 	.shop_li{
 		display: block;
+		z-index:1;
 		border-bottom: 0.025rem solid #f1f1f1;
 		padding: 0.7rem 0.4rem;
 	}

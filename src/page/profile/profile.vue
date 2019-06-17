@@ -4,8 +4,8 @@
         <section>
             <section class="profile-number">
                 <router-link :to="userInfo&&userInfo.user_id? '/profile/info' : '/login'" class="profile-link">
-                    <img :src="imgBaseUrl + userInfo.avatar" class="privateImage" v-if="userInfo&&userInfo.user_id">
-                    <span class="privateImage" v-else>
+                    <!-- <img :src="imgBaseUrl + userInfo.avatar" class="privateImage" v-if="userInfo&&userInfo.user_id"> -->
+                    <span class="privateImage" >
                         <svg class="privateImage-svg">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#avatar-default"></use>
                         </svg>
@@ -29,19 +29,23 @@
                 </router-link>
             </section>
             <section class="info-data">
-                <ul class="clear">
-                    <!-- <router-link to="/balance" tag="li" class="info-data-link">
-                        <span class="info-data-top"><b>{{parseInt(balance).toFixed(2)}}</b>元</span>
-                        <span class="info-data-bottom">我的余额</span>
-                    </router-link> -->
-                    <!-- <router-link to="/benefit" tag="li" class="info-data-link">
-                        <span class="info-data-top"><b>{{count}}</b>个</span>
-                        <span class="info-data-bottom">我的优惠</span>
+                <ul class="clear" >
+                    <router-link to="/" tag="li" class="info-data-link">
+                        <span class="info-data-top"><b>100</b></span>
+                        <span class="info-data-bottom">回放</span>
                     </router-link>
-                    <router-link to="/points" tag="li" class="info-data-link">
-                        <span class="info-data-top"><b>{{pointNumber}}</b>分</span>
-                        <span class="info-data-bottom">我的积分</span>
-                    </router-link> -->
+                    <router-link to="/" tag="li" class="info-data-link">
+                        <span class="info-data-top"><b>{{count}}</b></span>
+                        <span class="info-data-bottom">关注</span>
+                    </router-link>
+                    <router-link to="/" tag="li" class="info-data-link">
+                        <span class="info-data-top"><b>{{pointNumber}}</b></span>
+                        <span class="info-data-bottom">粉丝</span>
+                    </router-link>
+                     <router-link to="/" tag="li" class="info-data-link">
+                        <span class="info-data-top"><b>{{pointNumber}}</b></span>
+                        <span class="info-data-bottom">收藏</span>
+                    </router-link>
                 </ul>
             </section>
             <section class="profile-1reTe">
@@ -53,7 +57,7 @@
                         </svg>
                     </aside>
                     <div class="myorder-div">
-                        <span>我的订单</span>
+                        <span>我的消息</span>
                         <span class="myorder-divsvg">
                             <svg fill="#bbb">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
@@ -78,25 +82,176 @@
                     </div> -->
                 </a>
                 <!-- 饿了么会员卡 -->
-                <!-- <router-link to='/vipcard' class="myorder">
+                <router-link to='/' class="myorder">
                     <aside>
                         <svg fill="#ffc636">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
                         </svg>
                     </aside>
                     <div class="myorder-div">
-                        <span>饿了么会员卡</span>
+                        <span>最近观看</span>
                         <span class="myorder-divsvg">
                             <svg fill="#bbb">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
                             </svg>
                         </span>
                     </div>
-                </router-link> -->
+                </router-link>
+                <router-link to='/' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>我的围城</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                <router-link to='/points' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>我的点包</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                <router-link to='/balance' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>我的钱包</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                <router-link to='/' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>我的收益</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                <router-link to='/partnerTime' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>成为合伙人</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                 <router-link to='/benefit' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>实名认证</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                 <router-link to='/' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>我的收益</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                 <router-link to='/' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>我的消费</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                 <router-link to='/' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>银行卡</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
+                 <router-link to='/' class="myorder">
+                    <aside>
+                        <svg fill="#ffc636">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                        </svg>
+                    </aside>
+                    <div class="myorder-div">
+                        <span>设置</span>
+                        <span class="myorder-divsvg">
+                            <svg fill="#bbb">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            </svg>
+                        </span>
+                    </div>
+                </router-link>
             </section>
-            <!-- <section class="profile-1reTe"> -->
-                <!-- 服务中心 -->
-                <!-- <router-link to='/service' class="myorder">
+            <!-- 服务中心 -->
+            <!-- <section class="profile-1reTe">
+                
+                <router-link to='/service' class="myorder">
                     <aside>
                         <svg fill="#4aa5f0">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#service"></use>
@@ -110,9 +265,9 @@
                             </svg>
                         </span>
                     </div>
-                </router-link> -->
+                </router-link>
 
-                <!-- <router-link to='/download' class="myorder">
+                <router-link to='/download' class="myorder">
                     <aside>
                         <svg fill="#3cabff">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#download"></use>
@@ -126,8 +281,8 @@
                             </svg>
                         </span>
                     </div>
-                </router-link> -->
-            <!-- </section> -->
+                </router-link>
+            </section> -->
         </section>
         <foot-guide></foot-guide>
         <transition name="router-slid" mode="out-in">
@@ -279,9 +434,10 @@ export default {
         background:$fc;
         box-sizing: border-box;
         ul{
+            display:flex;
             .info-data-link{
                 float:left;
-                width:33.33%;
+                flex:auto;
                 display:inline-block;
                 border-right:1px solid #f1f1f1;
                 span{

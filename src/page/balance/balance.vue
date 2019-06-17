@@ -1,23 +1,58 @@
  <template>
   <div class="page">
-        <head-top head-title="我的余额" go-back='true'></head-top>
+        <head-top head-title="我的钱包" go-back='true'></head-top>
         <section class="content_container">
             <section class="content">
                 <header class="content_header">
                     <span class="content_title_style">当前余额</span>
-                    <section class="contetn_description">
+                    <!-- <section class="contetn_description">
                         <img src="../../images/description.png" height="24" width="24">
-                        <router-link to="/balance/detail" class="content_title_style">余额说明</router-link>
-                    </section>
+                        <router-link to="/balance/detail" class="content_title_style">提现说明</router-link>
+                    </section> -->
                 </header>
                 <p class="content_num">
-                    <span>0.00</span>
+                    <span>100.00</span>
                     <span>元</span>
                 </p>
-                <div class="promit_button">提现</div>
             </section>
         </section>
-        <p class="deal_detail">交易明细</p>
+         <section class="profile-1reTe">
+            <router-link to='/' class="myorder">
+                <aside>
+                    <svg fill="#ffc636">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                    </svg>
+                </aside>
+                <div class="myorder-div">
+                    <span>余额收入支出详情</span>
+                    <span class="myorder-divsvg">
+                        <svg fill="#bbb">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                        </svg>
+                    </span>
+                </div>
+            </router-link>
+             <router-link to='/' class="myorder">
+                <aside>
+                    <svg fill="#ffc636">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vip"></use>
+                    </svg>
+                </aside>
+                <div class="myorder-div">
+                    <span>提现规则</span>
+                    <span class="myorder-divsvg">
+                        <svg fill="#bbb">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                        </svg>
+                    </span>
+                </div>
+            </router-link>
+        </section>
+        <section class="promit_button-box">
+            <div class="promit_button">提现</div>
+            <div class="promit_button">买卖时间点数</div>
+        </section>
+        <!-- <p class="deal_detail">交易明细</p>
         <div class="no_log">
             <img src="../../images/no-log.png">
             <p>暂无明细记录</p>
@@ -25,7 +60,7 @@
         <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
         <transition name="router-slid" mode="out-in">
             <router-view></router-view>
-        </transition>
+        </transition> -->
     </div>
 </template>
 
@@ -62,15 +97,31 @@
     .page{
         padding-top: 1.95rem;
         p, span{
+            text-align:center;
             font-family: Helvetica Neue,Tahoma,Arial;
         }
     }
+    .promit_button-box{
+        position:absolute;
+        bottom:2rem;
+        width:100%
+    }
+    .promit_button{
+        @include wh(80%, 2rem);
+        @include sc(.8rem, #fff);
+        border-radius: 1rem;
+        line-height: 2rem;
+        margin:.5rem auto;
+        text-align: center;
+        background-color:$blue;
+        background: linear-gradient(to right,#dc87b1,#a64274);
+    }
     .content_container{
         padding: .3rem;
-        background-color: $blue;
+        // background-color: $blue;
         .content{
             padding: .4rem;
-            background-color: #fff;
+            // background-color: #fff;
             border-radius: .15rem;
             .content_header{
                 @include fj;
@@ -92,7 +143,7 @@
             }
             .content_num{
                 span:nth-of-type(1){
-                    @include sc(1.8rem, #333);
+                    @include sc(1.8rem, $blue);
                 }
                 span:nth-of-type(2){
                     @include sc(.7rem, #333);
@@ -105,7 +156,7 @@
                 line-height: 2rem;
                 margin-top: 1rem;
                 text-align: center;
-                background-color: #ccc;
+                background-color:$blue;
             }
         }
     }
@@ -131,5 +182,44 @@
     .router-slid-enter, .router-slid-leave-active {
         transform: translate3d(2rem, 0, 0);
         opacity: 0;
+    }
+    .profile-1reTe{
+        margin-top:.4rem;
+        background:#F5F5F5;
+        .myorder{
+            padding-left:1.6rem;
+            display:flex;
+            align-items: center;
+            aside{
+                @include wh(.7rem,.7rem);
+                margin-left:-.866667rem;
+                margin-right:.266667rem;
+                display:flex;
+                align-items: center;
+                svg{
+                    @include wh(100%,100%);
+                }
+            }
+            .myorder-div{
+                width:100%;
+                border-bottom:1px solid #f1f1f1;
+                padding:.433333rem .266667rem .433333rem 0;
+                @include sc(.7rem,#333);
+                display:flex;
+                justify-content:space-between;
+                span{
+                    display:block;
+                }
+                .myorder-divsvg{
+                    @include wh(.46667rem,.466667rem);
+                    svg{
+                        @include wh(100%,100%);
+                    }
+                }
+            }
+        }
+        .myorder:nth-of-type(3) .myorder-div{
+            border:0;
+        }
     }
 </style>

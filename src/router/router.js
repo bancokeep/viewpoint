@@ -39,6 +39,7 @@ const addDetail = r => require.ensure([], () => r(require('../page/profile/child
 const balance = r => require.ensure([], () => r(require('../page/balance/balance')), 'balance')
 const balanceDetail = r => require.ensure([], () => r(require('../page/balance/children/detail')), 'balanceDetail')
 const benefit = r => require.ensure([], () => r(require('../page/benefit/benefit')), 'benefit')
+const partnerTime = r => require.ensure([], () => r(require('../page/partnerTime/partnerTime')), 'partnerTime')
 const coupon = r => require.ensure([], () => r(require('../page/benefit/children/coupon')), 'coupon')
 const hbDescription = r => require.ensure([], () => r(require('../page/benefit/children/hbDescription')), 'hbDescription')
 const hbHistory = r => require.ensure([], () => r(require('../page/benefit/children/hbHistory')), 'hbHistory')
@@ -237,6 +238,15 @@ export default [{
             children: [{
                 path: 'detail', //余额说明
                 component: balanceDetail,
+            }, ]
+        },
+         //时间合伙人
+         {
+            path: 'partnerTime',
+            component: partnerTime,
+            children: [{
+                path: 'partnerTime', //余额说明
+                component: partnerTime,
             }, ]
         },
         //我的优惠页

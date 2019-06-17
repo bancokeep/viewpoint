@@ -15,6 +15,7 @@
 				<span class="title_text ellipsis">赞赏</span>
 			</router-link>
     	</head-top>
+		
 		<form class="search_form">
 			<div class="circle-red"><span>赞</span></div>
 			<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  class="svg-circle"> 
@@ -34,6 +35,24 @@
 			<!-- <div class="search_submit">分享1</div> -->
 			<!-- <input type="submit" name="submit" class="search_submit" @click.prevent="searchTarget('')"> -->
 		</form>
+		<section class="nav-foot-box" v-show="showShare" @click="hiddenShare">
+			<section class="nav-foot-item">
+				<div>
+					<img src="../../images/weixin.png">
+				</div>
+				<span>
+					分享到微信
+				</span>
+			</section>
+			<section class="nav-foot-item">
+					<div>
+					<img src="../../images/qq.png" >
+				</div>
+				<span>
+					分享到QQ
+				</span>
+			</section>
+		</section>
 		<div class="search_none" v-if="emptyResult">很抱歉！无搜索结果</div>
     	<!-- <nav class="msite_nav">
     		<div class="swiper-container" v-if="foodTypes.length">
@@ -58,8 +77,9 @@
 	    		</svg>
 	    		<span class="shop_header_title">附近商家</span>
 	    	</header> -->
-	    	<shop-list v-if="hasGetData" :geohash="geohash"></shop-list>
+	    	<shop-list v-if="hasGetData" :geohash="geohash" v-on:faShowShare="chShowShare"></shop-list>
     	</div>
+		
     	<foot-guide></foot-guide>
     </div>    
 </template>
@@ -81,7 +101,8 @@ export default {
             msietTitle: '请选择地址...', // msiet页面头部标题
             foodTypes: [], // 食品分类列表
             hasGetData: false, //是否已经获取地理位置数据，成功之后再获取商铺列表信息
-            imgBaseUrl: 'https://fuss10.elemecdn.com', //图片域名地址
+			imgBaseUrl: 'https://fuss10.elemecdn.com', //图片域名地址
+			showShare:false,
         }
     },
     async beforeMount(){
@@ -139,7 +160,13 @@ export default {
     		}else{
     			return ''
     		}
-    	}
+		},
+		chShowShare(msg){
+			this.showShare = msg
+		},
+		hiddenShare(){
+			this.showShare = false
+		}
     },
     watch: {
 
@@ -302,5 +329,36 @@ export default {
 			padding: 0rem 0.6rem;
 		}
 	}
-
+	 .nav-foot-box{
+		
+        position: fixed;
+		z-index:2;
+		bottom: 1.9rem;
+		display: -webkit-flex;
+		zoom: 1;
+		display: -ms-flexbox;
+		display: flex;
+		background-color: rgba(6, 0, 0, 0.8);
+		width: 100%;
+        .nav-foot-item{
+            flex:auto;
+            margin: .5rem;
+            text-align: center;
+            div{
+                // padding: .5rem;
+                // margin: .5rem 0;
+                border-radius: .2rem;
+                // background-color: #fff;
+                img{
+                width:2rem
+             }
+            }
+            span{
+                color:#fff; 
+                font-size:0.5rem;
+                padding-bottom: 1rem;
+                display: block;
+            }
+        }
+    }
 </style>

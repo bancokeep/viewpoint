@@ -1,14 +1,14 @@
 <template>
     <div class="loginContainer">
-        <head-top head-title="认证个人信息" goBack="true">
+        <head-top head-title="成为合伙人" goBack="true">
             <!-- <div slot="changeLogin" class="change_login" @click="changeLoginWay">{{loginWay? "密码登录":"短信登录"}}</div> -->
         </head-top>
-        <section class="section-div">
+        <!-- <section class="section-div">
             <div>根据相关法规，提现需要实名认证。</div>
             <div>认证信息观点会严格保密</div>
-        </section>
+        </section> -->
          <section class="section-div-1">
-            <div>请填写真实个人信息</div>
+            <div>您要申请成为</div>
         </section>
         
         <form class="loginForm" v-if="loginWay">
@@ -21,47 +21,16 @@
                 <input type="text" placeholder="验证码" name="mobileCode" maxlength="6" v-model="mobileCode">
             </section>
         </form>
-        <form class="loginForm" v-else>
-            <section class="input_container">
-                <input type="text" placeholder="真实姓名" v-model.lazy="userAccount">
-            </section>
-             <section class="input_container">
-                <input type="text" placeholder="身份证号" v-model.lazy="userAccount">
-            </section>
-             <section class="input_container">
-                <input type="text" placeholder="手机号" v-model.lazy="userAccount">
-            </section>
-             <section class="input_container">
-                <input type="text" placeholder="账号" v-model.lazy="userAccount">
-            </section>
-
-            <!-- <section class="input_container">
-                <input v-if="!showPassword" type="password" placeholder="密码"  v-model="passWord">
-                <input v-else type="text" placeholder="密码"  v-model="passWord">
-                <div class="button_switch" :class="{change_to_text: showPassword}">
-                    <div class="circel_button" :class="{trans_to_right: showPassword}" @click="changePassWordType"></div>
-                    <span>abc</span>
-                    <span>...</span>
-                </div>
-            </section> -->
-            <section class="input_container captcha_code_container">
-                <input type="text" placeholder="验证码" maxlength="4" v-model="codeNumber">
-                <div class="img_change_img">
-                    <img v-show="captchaCodeImg" :src="captchaCodeImg">
-                    <div class="change_img" @click="getCaptchaCode">
-                        <p>看不清</p>
-                        <p>换一张</p>
-                    </div>
-                </div>
-            </section>
-        </form>
+        
         <!-- <p class="login_tips">
             温馨提示：未注册过的账号，登录时将自动注册
         </p>
         <p class="login_tips">
             注册过的用户可凭账号密码登录
         </p> -->
-        <div class="login_container" >确认</div>
+        <div class="login_container bg-r" >成为大区代理</div>
+        <div class="login_container bg-b" >成为城市总代理</div>
+        <div class="login_container bg-p" >成为时间合伙人</div>
         <!-- <router-link to="/forget" class="to_forget" v-if="!loginWay">重置密码？</router-link> -->
         <alert-tip v-if="showAlert" :showHide="showAlert" @closeTip="closeTip" :alertText="alertText"></alert-tip>
     </div>
@@ -281,13 +250,17 @@
     .login_container{
         margin: 0 .5rem 1rem;
         @include sc(.7rem, #fff);
-        background-color: $blue;
-        background: linear-gradient(to right, #dc87b1, #a64274);
+        // background-color: $blue;
+        // background: linear-gradient(to right, #dc87b1, #a64274);
+        box-shadow: 0.2rem 0.3rem 0.3rem #c7b8b8;
         padding: .5rem 0;
         border: 1px;
         border-radius: 0.15rem;
         text-align: center;
     }
+    .bg-r{ background-color: red;}
+    .bg-b{ background-color: #63afd4;}
+    .bg-p{ background-color: #ec5ea1;}
     .button_switch{
         background-color: #ccc;
         display: flex;
@@ -331,16 +304,17 @@
     .section-div{
         margin-top: 0.5rem;
         background: linear-gradient(to right, #dc87b1, #a64274);
+            // box-shadow: 0.2rem 0.3rem 0.3rem #ccc;
         div{
-            font-size:.7rem;
+            font-size:.8rem;
             padding:.25rem .5rem;
         }
     }
     .section-div-1{
-        margin: 0.25rem 0rem;
-        background-color:#eee;
+        margin: 1rem 0rem 2rem;
+        // background-color:#eee;
         div{
-            font-size:.6rem;
+            font-size:.7rem;
             padding:.25rem .5rem;
         }
     }
